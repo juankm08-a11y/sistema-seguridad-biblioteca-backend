@@ -15,7 +15,6 @@ app.use(
   }),
 );
 
-app.options("*", cors());
 const usuarios = [
   {
     id: 1,
@@ -45,7 +44,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.get("/login-paso1", async (req, res) => {
+app.post("/login-paso1", async (req, res) => {
   const { email, password } = req.body;
   const user = usuarios.find(
     (u) => u.email === email && u.password === password,
