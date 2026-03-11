@@ -20,7 +20,7 @@ const usuarios = [
     id: 1,
     email: "juancarlospabon01@gmail.com",
     password: "123",
-    tol: "admin",
+    rol: "admin",
     code2fa: null,
     refreshToken: null,
   },
@@ -100,7 +100,7 @@ app.get(
   },
 );
 
-app.get("/refresh-token", (req, res) => {
+app.post("/refresh-token", (req, res) => {
   const { token } = req.body;
   if (!token) return res.sendStatus(401);
 
